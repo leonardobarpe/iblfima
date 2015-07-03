@@ -4,8 +4,52 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>TIC | Inversiones Boyacá Ltda</title> 
     <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
+    <style type="text/css">
+      #video{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            function bgadj(){
+                var videoActualWidth = video.getBoundingClientRect().width;
+                var videoActualHeight = video.getBoundingClientRect().height;
+                var ratio =  videoActualWidth / videoActualHeight;         
+                 
+                if ((window.innerWidth / window.innerHeight) < ratio){
+                    video.setAttribute("style", "width: auto");
+                    video.setAttribute("style", "height: 100%");
+                      
+                    <!-- si el vídeo es mas ancho que la ventana lo centro. Esta parte es opcional -->
+                    if (videoActualWidth > window.innerWidth){
+                      
+                        var ajuste = (window.innerWidth - videoActualWidth)/2;                
+                        
+                        video.setAttribute("style", "left:"+ajuste+"px");          
+                    }
+                }
+                else{ 
+                  
+                    video.setAttribute("style", "width: 100%");
+                    video.setAttribute("style", "height: auto");
+                    video.setAttribute("style", "left: 0");
+                }
+            }
+            window.onresize = function() {
+                bgadj();
+            }
+        }
+    </script>
   </head>
 <body onload="bgadj();">
+<video id="video" autoplay="autoplay" preload="auto" loop="loop">
+     <source src="https://raw.githubusercontent.com/leonardobarpe/iblfima/master/img/fondo1.mp4" type="video/mp4"></source>
+  </video>
   <div class="row">
     <div class="col-md-12">
                             <div class="col-md-12" style="background-color: #0000CD">
@@ -26,8 +70,5 @@
                             </div>
     </div>
   </div>
-
-
-
 </body>
 </html>
