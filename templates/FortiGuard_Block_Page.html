@@ -12,6 +12,7 @@
         z-index: 0;
         overflow: hidden;
         width: 100%;
+        opacity: 0.8;
       }
     </style>
     <script type="text/javascript">
@@ -20,21 +21,17 @@
                 var videoActualWidth = video.getBoundingClientRect().width;
                 var videoActualHeight = video.getBoundingClientRect().height;
                 var ratio =  videoActualWidth / videoActualHeight;         
-                 
                 if ((window.innerWidth / window.innerHeight) < ratio){
                     video.setAttribute("style", "width: auto");
                     video.setAttribute("style", "height: 100%");
                       
                     <!-- si el vídeo es mas ancho que la ventana lo centro. Esta parte es opcional -->
                     if (videoActualWidth > window.innerWidth){
-                      
                         var ajuste = (window.innerWidth - videoActualWidth)/2;                
-                        
                         video.setAttribute("style", "left:"+ajuste+"px");          
                     }
                 }
                 else{ 
-                  
                     video.setAttribute("style", "width: 100%");
                     video.setAttribute("style", "height: auto");
                     video.setAttribute("style", "left: 0");
@@ -47,8 +44,8 @@
     </script>
   </head>
 <body onload="bgadj();">
-<video id="video" autoplay="autoplay" preload="auto" loop="loop">
-     <source src="https://raw.githubusercontent.com/leonardobarpe/iblfima/master/img/fondo1.mp4" type="video/mp4"></source>
+  <video id="video" autoplay="autoplay" preload="auto" loop="loop" volume="50">
+     <source src="https://raw.githubusercontent.com/leonardobarpe/iblfima/master/img/background.mp4" type="video/mp4"></source>
   </video>
   <div class="row">
     <div class="col-md-12">
